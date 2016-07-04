@@ -1,1 +1,137 @@
-
+<div align="center">
+<font size="4" face="Tahoma"><b>Dobbellen</b></font><br><br>
+<?
+if (isset($_POST['gooi'])) { //Kijk of de knop "Gooi" al eens is ingedrukt
+	$aantalworpen = $_POST['aantalworpen'];
+	$aantalstenen = $_POST['aantalstenen'];
+	$minogen = $_POST['minogen'];
+	$maxogen = $_POST['maxogen'];
+	$a = 1;
+	while ($a <= $aantalworpen) {//Start van alle worpen
+		$b = 1;
+		while ($b <= $aantalstenen) {//Begin van 1 worp
+			$ogen[$b] = rand($minogen,$maxogen);
+			$b++;
+		}//Einde van deze worp (einde van while dobbelstenen)
+	$resultaat[$a] = $ogen;
+	$a++;
+	}//Einde van alle worpen (einde while worpen)
+//---------------------------Vanaf hier: Prutswerk met tabellen...-----------------------------
+	?>
+<table width="75%" border="1">
+	  <tr>
+	    <td></td>
+		<? 
+		$c = 1;
+		while ($c <= $aantalworpen) {
+			?>
+		    <td align="center">Worp <? echo($c); ?></td>
+			<?
+			$c++;
+		}
+		?>
+	    <td></td>
+	  </tr>
+		<?
+		$d = 1;
+		while ($d <= $aantalstenen) {
+			?>
+			  <tr>
+			    <td align="center"><? echo($d);?>.</td>
+			<? 
+			$e = 1;
+			while ($e <= $aantalworpen) {
+				?>
+				<td align="center"><? echo($resultaat[$e][$d]); ?></td>
+				<?
+				$e++;
+			}
+			?>
+	   			<td></td>
+			  </tr>
+			<?
+			$d++;
+			}
+		?>
+		  <tr>
+		    <td align="center">Som</td>
+		<? 
+		$e = 1;
+		while ($e <= $aantalworpen) {
+			$somogen = array_sum($resultaat[$e]);
+			?>  
+			    <td align="center"><? echo($somogen); ?></td>
+			<?
+			if (isset($totalesom)) {
+				$totalesom = $totalesom + array_sum($resultaat[$e]);
+			} else { 
+				$totalesom = array_sum($resultaat[$e]);
+			}
+			$e++;
+		}
+		?>
+			<td> = <? echo($totalesom); ?></td>
+		  </tr>
+		  <tr>
+		    <td align="center">Gemiddelde</td>
+		<? 
+		$e = 1;
+		while ($e <= $aantalworpen) {
+			$somogen = array_sum($resultaat[$e]);
+			$gemiddelde = $somogen / $aantalstenen;
+			?>  
+			  	<td align="center"><? echo($gemiddelde); ?></td>
+			<?
+			$e++;
+		}
+		?>
+		    <td> = <? echo($totalesom / $aantalstenen / $aantalworpen); ?></td>
+		  </tr>
+		</table>
+		</div>
+<? //----------------------------Einde Prutswerk-------------------------------
+} //Einde van 'Kijk of de knop "Gooi" al eens is ingedrukt'
+?> 
+	<div align="center">
+	<form name="form1" method="post" action="">
+	    <table width="75%" border="0">
+	      <tr> 
+	        <td width="55%"><div align="right"><font size="2" face="Tahoma">Aantal worpen:</font></div></td>
+	        <td width="2%"><font size="2" face="Tahoma">&nbsp;</font></td>
+	        <td width="43%"><font size="2" face="Tahoma"> 
+	          <input name="aantalworpen" type="text" value="1" size="10">
+	          </font></td>
+	      </tr>
+	      <tr> 
+	        <td><div align="right"><font size="2" face="Tahoma">Aantal dobbelstenen 
+	            per worp:</font></div></td>
+	        <td><font size="2" face="Tahoma">&nbsp;</font></td>
+	        <td><font size="2" face="Tahoma"> 
+	          <input name="aantalstenen" type="text" value="2" size="10">
+	          </font></td>
+	      </tr>
+	      <tr> 
+	        <td><div align="right"><font size="2" face="Tahoma">Minimum aantal ogen 
+	            per dobbelsteen:</font></div></td>
+	        <td><font size="2" face="Tahoma">&nbsp;</font></td>
+	        <td><font size="2" face="Tahoma"> 
+	          <input name="minogen" type="text" value="1" size="10">
+	          </font></td>
+	      </tr>
+	      <tr> 
+	        <td><div align="right"><font size="2" face="Tahoma">Maximum aantal ogen 
+	            per dobbelsteen:</font></div></td>
+	        <td><font size="2" face="Tahoma">&nbsp;</font></td>
+	        <td><font size="2" face="Tahoma"> 
+	          <input name="maxogen" type="text" value="6" size="10">
+	          </font></td>
+	      </tr>
+	      <tr> 
+	        <td colspan="3" height="10"></td>
+	      </tr>
+	      <tr> 
+	        <td colspan="3"><div align="center"><input type="submit" name="gooi" value="Gooi!"></div></td>
+	      </tr>
+	    </table>
+	</form>
+</div>
