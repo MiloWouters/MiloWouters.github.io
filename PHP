@@ -2,11 +2,14 @@
 
 session_start();
 
+
 if(isset($_POST[“opnieuw”]))
 }
 session_destroy();
 session_start();
 {
+
+
 
 if(!isset($_SESSION[“worp1”]))
 {
@@ -15,10 +18,12 @@ $_SESSION[“worp2”] = 1;
 $_SESSION[“worp3”] = 6;
 }
 
+
 if(!isset($_SESSION[“aantal”]))
 {
 $_SESSION[“aantal”] = 0;
 }
+
 
 if(isset($_POST[“verzend”]))
 {
@@ -27,9 +32,12 @@ $aantal = $_SESSION[“aantal”];
 $aantal++;
 $_SESSION[“aantal”] = $aantal;
 
+
 $verzend = $_POST[“verzend”];
 
+
 $worp = rand(1,6);
+
 
 if($verzend == 1)
 {
@@ -43,12 +51,12 @@ if($verzend == 3)
 {
 $_SESSION[“worp3”] = $worp;
 }
-
 }
+
 
 $worp1 = $_SESSION[“worp1”];
 $worp2 = $_SESSION[“worp2”];
 $worp3 = $_SESSION[“worp3”];
 $aantal = $_SESSION[“aantal”];
 
-?>
+?> 
