@@ -1,11 +1,11 @@
 <?php
-
+// hier word er gecontroleerd of er op de verzendknop is geklikt
 if(isset($_POST["verzend"]))
 {
-
+// hier wordt een willekeurig getal tussen 1 en 6 bewaard in de variabele $worp
 $worp = rand(1,6); 
 
-
+// hier word afhankelijk van $worp een afbeelding getoond op het beeldscherm
 switch($worp)
 {
 case"1":echo"<img src='http://www.online-dobbelsteen.nl/img/1c.gif' />";break;
