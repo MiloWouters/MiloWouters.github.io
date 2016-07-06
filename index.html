@@ -5,7 +5,7 @@ if(isset($_POST["verzend"]))
 // hier wordt een willekeurig getal tussen 1 en 6 bewaard in de variabele $worp
 $worp = rand(1,6); 
 
-// hier word afhankelijk van $worp een afbeelding getoond op het beeldscherm
+// hier wordt afhankelijk van $worp een afbeelding getoond op het beeldscherm
 switch ($worp) {
  case "1":
   echo "<img src='http://www.online-dobbelsteen.nl/img/1c.gif' />";
@@ -26,7 +26,7 @@ switch ($worp) {
  echo "<img src='http://www.online-dobbelsteen.nl/img/6c.gif' />";
  break;
 }
-}
+
 else
 {
 echo"<img src='http://www.online-dobbelsteen.nl/img/3c.gif' />";
