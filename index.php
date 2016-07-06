@@ -38,7 +38,7 @@ else { echo"<img src='http://www.online-dobbelsteen.nl/img/3c.gif' />"; }
 ?>
 <br />
 <form action="werp1.php" method="post">
-<input type="submit" name="verzend" value="WERP" /> 123
+<input type="submit" name="verzend" value="WERP" /> 
 </form>
  </body>
 </html>
