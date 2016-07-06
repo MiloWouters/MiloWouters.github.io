@@ -30,12 +30,12 @@ switch ($worp) {
  case "6":
  echo "<img src='http://www.online-dobbelsteen.nl/img/6c.gif' />";
  break;
-
 }
 }
 
 else { echo"<img src='http://www.online-dobbelsteen.nl/img/3c.gif' />"; }
 ?>
+
 <br />
 <form action="werp1.php" method="post">
 <input type="submit" name="verzend" value="WERP" /> 
